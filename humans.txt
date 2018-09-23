@@ -1,0 +1,12 @@
+/* TEAM */
+Owner: Vincent Nadoll
+Site: vincent.nadoll@gmail.com
+Twitter: @V1ncNet
+GitHub: V1ncNet
+Location: Dresden, Germany
+
+/* SITE */
+Last update: 2018/06/22 
+Standards: HTML5, CSS3
+Language: English
+IDE: VS Code
