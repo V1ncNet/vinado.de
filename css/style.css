@@ -6,12 +6,13 @@
     box-sizing: border-box;
 }
 
-html {
-    position: relative;
+html, body {
     height: 100%;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1rem;
     font-weight: 300;
@@ -19,8 +20,15 @@ body {
     color: #212529;
 }
 
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
 header {
-    margin-top: 2rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid #6c757d;
     text-align: center;
@@ -34,7 +42,7 @@ header img {
     margin-bottom: 1rem;
 }
 
-main {
+section {
     margin-top: 1rem;
     margin-bottom: 1.5rem;
 }
@@ -47,6 +55,10 @@ article {
 ul {
     list-style: none;
     padding-left: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
 }
 
 a {
@@ -65,13 +77,16 @@ a:active {
 }
 
 footer {
-    bottom: 0;
     width: 100%;
     height: 40px;
     font-size: 0.9rem;
     color: #6c757d;
     line-height: 40px;
     text-align: center;
+}
+
+footer p {
+    margin: 0;
 }
 
 footer a {
@@ -81,10 +96,8 @@ footer a {
 @media screen and (min-width: 768px) {
     body {
         font-size: 1.2rem;
-        margin-bottom: 60px;
     }
     header {
-        margin-top: 8rem;
         text-align: left;
     }
     header img {
@@ -97,7 +110,7 @@ footer a {
         font-size: 2.8rem;
         vertical-align: bottom;
     }
-    main {
+    section {
         margin-bottom: 0;
     }
     article {
@@ -108,12 +121,14 @@ footer a {
         font-size: 2.2rem;
         margin-bottom: 1rem;
     }
-    ul {
-        padding-left: 2rem;
-    }
     footer {
-        position: absolute;
         height: 60px;
         line-height: 60px;
+    }
+}
+
+@media screen and (min-height: 700px) {
+    main {
+        margin-top: 0;
     }
 }
