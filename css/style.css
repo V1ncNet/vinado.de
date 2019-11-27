@@ -126,12 +126,12 @@ pre {
 }
 
 textarea.pgp {
-    font-size: 13px;
+    font-size: 0.813rem;
     resize: vertical;
     height: 200px;
-    padding: 8px;
-    padding-right: 0px;
-    padding-bottom: 1px;
+    padding: 0.5rem;
+    padding-right: 0;
+    padding-bottom: 0.063rem;
     background-color: #f8f9fa;
     border-color: #f8f9fa;
     font-family: 'Courier New', Courier, monospace, fixed;
