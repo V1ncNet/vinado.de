@@ -93,6 +93,58 @@ footer a {
     color: #6c757d;
 }
 
+.w-100 {
+    width: 100%;
+}
+
+table.pgp td+td {
+    text-align: right;
+}
+
+figure {
+    margin: 0 0 1rem;
+}
+
+figure.pgp {
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f8f9fa;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+pre {
+    overflow: auto;
+}
+
+.pgp pre {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    border: 0;
+}
+
+textarea.pgp {
+    font-size: 13px;
+    resize: vertical;
+    height: 200px;
+    padding: 8px;
+    padding-right: 0px;
+    padding-bottom: 1px;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    font-family: 'Courier New', Courier, monospace, fixed;
+    color: #555;
+    line-height: 1.42857;
+}
+
+@media (min-width: 576px) {
+    figure.pgp {
+        padding: 1.5rem;
+    }
+}
+
 @media screen and (min-width: 768px) {
     body {
         font-size: 1.2rem;
