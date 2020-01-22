@@ -1,3 +1,12 @@
+:root {
+  --white: #fff;
+  --light: #f8f9fa;
+  --gray-dark: #6c757d;
+  --dark: #212529;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
 *,
 *::before,
 *::after {
@@ -13,11 +22,12 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: var(--font-family-sans-serif);
     font-size: 1rem;
     font-weight: 300;
     line-height: 1.5;
-    color: #212529;
+    color: var(--dark);
+    background-color: var(--white);
 }
 
 main {
@@ -30,7 +40,7 @@ main {
 
 header {
     padding-bottom: 2rem;
-    border-bottom: 1px solid #6c757d;
+    border-bottom: 1px solid var(--gray-dark);
     text-align: center;
 }
 
@@ -62,7 +72,7 @@ p {
 }
 
 a {
-    color: #212529;
+    color: var(--dark);
     text-decoration: none;
 }
 
@@ -80,7 +90,7 @@ footer {
     width: 100%;
     height: 40px;
     font-size: 0.9rem;
-    color: #6c757d;
+    color: var(--gray-dark);
     line-height: 40px;
     text-align: center;
 }
@@ -90,7 +100,7 @@ footer p {
 }
 
 footer a {
-    color: #6c757d;
+    color: var(--gray-dark);
 }
 
 .w-100 {
@@ -109,7 +119,7 @@ figure.pgp {
     padding: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    background-color: #f8f9fa;
+    background-color: var(--light);
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
@@ -132,10 +142,10 @@ textarea.pgp {
     padding: 0.5rem;
     padding-right: 0;
     padding-bottom: 0.063rem;
-    background-color: #f8f9fa;
-    border-color: #f8f9fa;
-    font-family: 'Courier New', Courier, monospace, fixed;
-    color: #555;
+    background-color: var(--light);
+    border-color: var(--light);
+    font-family: var(--font-family-monospace);
+    color: var(--dark);
     line-height: 1.42857;
 }
 
