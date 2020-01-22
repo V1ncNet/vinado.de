@@ -64,7 +64,7 @@ article {
 
 ul {
     list-style: none;
-    padding-left: 1rem;
+    padding-left: 0;
 }
 
 p {
@@ -185,6 +185,9 @@ textarea.pgp {
     h2 {
         font-size: 2.2rem;
         margin-bottom: 1rem;
+    }
+    ul {
+        padding-left: inherit;
     }
     footer {
         height: 60px;
