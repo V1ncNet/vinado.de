@@ -44,12 +44,15 @@ header {
     text-align: center;
 }
 
-header img {
-    max-width: 100%;
+header picture {
     height: auto;
-    border-radius: 50%;
     width: 150px;
     margin-bottom: 1rem;
+}
+
+header picture img {
+    max-width: 100%;
+    border-radius: 50%;
 }
 
 section {
@@ -166,7 +169,7 @@ textarea.pgp {
     header {
         text-align: left;
     }
-    header img {
+    header picture {
         width: 100px;
         margin-right: 1rem;
         margin-bottom: 0;
