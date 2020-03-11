@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
-Sitemap: https://vinado.de
+Disallow:
+
+Sitemap: https://vinado.de/sitemap.xml
