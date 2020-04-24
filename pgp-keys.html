@@ -21,7 +21,7 @@
     <title>Vincent Nadoll &bull; PGP Keys</title>
 
     <!-- Matomo -->
-    <script type="text/javascript">
+    <script>
         var _paq = window._paq || [];
         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
         _paq.push(['disableCookies']);
@@ -46,9 +46,9 @@
                 <picture>
                     <source srcset="vincent.webp" type="image/webp">
                     <source srcset="vincent.jpg" type="image/jpeg">
-                    <img src="vincent.jpg" alt="Vincent Nadoll">
+                    <img src="vincent.jpg" alt="Photograph of me" title="Taken by @VogelRAW" aria-labelledby="title">
                 </picture>
-                <h1>Vincent Nadoll</h1>
+                <h1 id="title">Vincent Nadoll</h1>
             </header>
             <section>
                 <h2>PGP Keys</h2>
@@ -69,12 +69,12 @@
                     </tbody>
                 </table>
             </section>
-            <section>
+            <div>
                 <figure class="pgp">
                     <pre>curl https://vinado.de/pgp_keys.asc | gpg --import</pre>
                 </figure>
-            </section>
-            <section>
+            </div>
+            <div>
                 <textarea class="w-100 pgp" disabled>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -156,7 +156,7 @@ Rui29CKI7LNlF+CjBcPBTdvLow==
 =gkcv
 -----END PGP PUBLIC KEY BLOCK-----                              
                 </textarea>
-            </section>
+            </div>
         </div>
     </main>
     <footer>
