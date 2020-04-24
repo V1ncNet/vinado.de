@@ -212,3 +212,13 @@ textarea.pgp {
       --dark:  #fff;
     }
 }
+
+.dead-pixel {
+    background-color: #ff00ff;
+    width: 1px;
+    height: 1px;
+    position: fixed;
+    top: 230px;
+    left: 330px;
+    z-index: 9999;
+}
