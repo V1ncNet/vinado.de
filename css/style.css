@@ -152,6 +152,16 @@ textarea.pgp {
     line-height: 1.42857;
 }
 
+.dead-pixel {
+    background-color: #ff00ff;
+    width: 1px;
+    height: 1px;
+    position: fixed;
+    top: 230px;
+    left: 330px;
+    z-index: 9999;
+}
+
 @media (min-width: 576px) {
     figure.pgp {
         padding: 1.5rem;
@@ -196,6 +206,9 @@ textarea.pgp {
         height: 60px;
         line-height: 60px;
     }
+    .dead-pixel {
+        top: 210px;
+    }
 }
 
 @media screen and (min-width: 1200px) and (min-height: 900px) {
@@ -211,14 +224,4 @@ textarea.pgp {
       --gray-dark: #f8f9fa;
       --dark:  #fff;
     }
-}
-
-.dead-pixel {
-    background-color: #ff00ff;
-    width: 1px;
-    height: 1px;
-    position: fixed;
-    top: 230px;
-    left: 330px;
-    z-index: 9999;
 }
