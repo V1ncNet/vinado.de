@@ -211,6 +211,10 @@ textarea.pgp {
     }
 }
 
+address {
+    font-style: unset;
+}
+
 @media screen and (min-width: 1200px) and (min-height: 900px) {
     main {
         margin-top: 10rem;

@@ -53,21 +53,23 @@
             <div>
                 <section>
                     <h2>Imprint</h2>
-                    <p>
-                        Vincent Nadoll<br>
-                        Reichenbachstraße 33<br>
-                        01069 Dresden
-                    </p>
-                    <p>
-                        <a href="mailto:me&#64;vinado.de">me&#64;vinado.de</a>
-                    </p>
+                    <address>
+                        <p aria-label="Address">
+                            Vincent Nadoll<br>
+                            Reichenbachstraße 33<br>
+                            01069 Dresden
+                        </p>
+                        <p aria-label="Contact">
+                            <a href="mailto:me&#64;vinado.de">me&#64;vinado.de</a>
+                        </p>
+                    </address>
                 </section>
             </div>
         </div>
     </main>
-    <footer>
+    <footer role="navigation" aria-label="Main navigation">
         <p>
-            &copy; 2020 <a href="index.html">Vincent Nadoll</a> |
+            <span aria-hidden="true">&copy; 2020</span> <a href="index.html" aria-label="Homepage">Vincent Nadoll</a> |
             <a href="pgp-keys.html">PGP Keys</a> |
             <a href="imprint.html" rel="nofollow">Imprint</a>
         </p>

@@ -64,7 +64,7 @@
                         </tr>
                         <tr>
                             <td>Raw</td>
-                            <td><a href="pgp_keys.asc">pgp_keys.asc</a></td>
+                            <td><a href="pgp_keys.asc" aria-label="Download GPG keys">pgp_keys.asc</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -75,7 +75,7 @@
                 </figure>
             </div>
             <div>
-                <textarea class="w-100 pgp" disabled>
+                <textarea class="w-100 pgp" readonly="true" disabled aria-hidden="true">
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQINBF3OjkkBEADnrL7LeDBjTC9wJP6r0KvY5gHWOl824p1KhEljtusdhu2fXGPA
@@ -159,9 +159,9 @@ Rui29CKI7LNlF+CjBcPBTdvLow==
             </div>
         </div>
     </main>
-    <footer>
+    <footer role="navigation" aria-label="Main navigation">
         <p>
-            &copy; 2020 <a href="index.html">Vincent Nadoll</a> |
+            <span aria-hidden="true">&copy; 2020</span> <a href="index.html" aria-label="Homepage">Vincent Nadoll</a> |
             <a href="pgp-keys.html">PGP Keys</a> |
             <a href="imprint.html" rel="nofollow">Imprint</a>
         </p>
