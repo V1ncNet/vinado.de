@@ -5,7 +5,7 @@ LABEL maintainer="me@vinado.de"
 RUN ( \
     echo "server {"; \
     echo "    listen       80;"; \
-    echo "    listen  [::]:80;"; \
+    echo "    #listen  [::]:80;"; \
     echo "    server_name  localhost;"; \
     echo ""; \
     echo "    location / {"; \
