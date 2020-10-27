@@ -1,0 +1,48 @@
+h1, h2 {
+    font-weight: 700;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: #37474f;
+}
+
+.period {
+    font-size: .9rem;
+    color: var(--secondary);
+}
+
+ul {
+    margin-top: -0.8rem;
+    padding-left: 20px;
+}
+
+.border-dotted {
+    border-style: dotted;
+}
+
+div.border-bottom.border-dotted {
+    height: 1px;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+    .period {
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0.9;
+        color: inherit;
+    }
+}
