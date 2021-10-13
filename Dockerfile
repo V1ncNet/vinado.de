@@ -1,6 +1,6 @@
 FROM nginx:mainline
 
-LABEL maintainer="me@vinado.de"
+LABEL maintainer="vincent.nadoll@gmail.de"
 
 RUN ( \
     echo "server {"; \

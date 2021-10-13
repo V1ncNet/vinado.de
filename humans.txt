@@ -1,6 +1,6 @@
 /* TEAM */
 Owner: Vincent Nadoll
-Site: me@vinado.de
+Site: vincent.nadoll@gmail.de
 Twitter: @V1ncNet
 GitHub: V1ncNet
 Location: Dresden, Germany
