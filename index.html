@@ -12,7 +12,7 @@
     <meta property="og:site_name" content="Vincent Nadoll">
     <meta property="og:description" content="Find me on Twitter, GitHub - Barista and Maintainer at ascii Dresden - Contact me via Telegram, Email">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://vinado.de/vincent.jpg">
+    <meta property="og:image" content="https://vinado.de/vincent_1x.jpg">
     <meta property="og:url" content="https://vinado.de/">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -38,9 +38,15 @@
         <div class="container">
             <header class="d-md-flex align-items-center">
                 <picture>
-                    <source srcset="vincent.webp" type="image/webp">
-                    <source srcset="vincent.jpg" type="image/jpeg">
-                    <img src="vincent.jpg" width="256" height="256" alt="Photograph of myself" title="Taken by Jean-Philippe Apel" aria-labelledby="title">
+                    <source
+                        sizes="(min-width: 768px) 100px, 256px"
+                        srcset="vincent_2x.webp 512w, vincent_1x.webp 256w, vincent_small_2x.webp 200w, vincent_small_1x.webp 100w"
+                        type="image/webp">
+                    <source
+                        sizes="(min-width: 768px) 100px, 256px"
+                        srcset="vincent_2x.jpg 512w, vincent_1x.jpg 256w, vincent_small_2x.jpg 200w, vincent_small_1x.jpg 100w"
+                        type="image/jpeg">
+                    <img src="vincent_1x.jpg" width="256" height="256" alt="Photograph of myself" title="Taken by Jean-Philippe Apel" aria-labelledby="title">
                 </picture>
                 <h1 id="title">Vincent Nadoll</h1>
             </header>
