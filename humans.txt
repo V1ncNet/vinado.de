@@ -3,6 +3,7 @@ Owner: Vincent Nadoll
 Site: vincent.nadoll@gmail.com
 Twitter: @V1ncNet
 GitHub: V1ncNet
+Telegram: vinado
 Location: Dresden, Germany
 
 /* SITE */
