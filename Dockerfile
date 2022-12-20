@@ -43,6 +43,9 @@ RUN ( \
     echo "    location = /50x.html {"; \
     echo "        root   /usr/share/nginx/html;"; \
     echo "    }"; \
+    echo "    location /ca/ {"; \
+    echo "        autoindex on;"; \
+    echo "    }"; \
     echo "}"; \
   ) >  /etc/nginx/conf.d/default.conf
 
