@@ -7,7 +7,7 @@ Telegram: vinado
 Location: Dresden, Germany
 
 /* SITE */
-Last update: 2022-10-10
+Last update: 2023-06-08
 Standards: HTML5, CSS3
 Language: English
 IDE: VS Code
