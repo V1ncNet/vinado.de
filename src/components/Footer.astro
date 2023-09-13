@@ -1,10 +1,13 @@
 ---
+import Navigation from "./Navigation.astro";
+
 const now = new Date();
 const year = now.getFullYear();
 ---
 
-<footer>
+<footer aria-label="Main navigation">
   <p>
     <span aria-hidden="true">&copy; {year}</span>
+    <Navigation />
   </p>
 </footer>
