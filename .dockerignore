@@ -1,0 +1,23 @@
+### Git ###
+.git/
+.gitignore
+.gitmodules
+
+### JetBrains ###
+.idea/
+
+### VS Code ###
+.vscode/
+.history/
+
+### Node ###
+logs/
+node_modules/
+
+### MacOS ###
+.DS_Store
+
+### Project ###
+dist/
+.editorconfig
+README.md
