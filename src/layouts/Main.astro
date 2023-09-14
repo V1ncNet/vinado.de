@@ -22,6 +22,7 @@ const { ogTitle = title, ogDescription, classList, meta } = Astro.props;
     <meta name="description" content={meta.description} />
     <meta name="keywords" content={meta.keywords.join(", ")} />
     <OpenGraph title={ogTitle} description={ogDescription} />
+    <link rel="author" type="text/plain" href="humans.txt" />
     <link rel="sitemap" type="application/xml" href="sitemap-index.xml" />
     <title>{title}</title>
     <script defer src="/fontawesome/js/brands.js"></script>

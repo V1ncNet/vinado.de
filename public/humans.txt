@@ -1,0 +1,15 @@
+/* TEAM */
+Owner: Vincent Nadoll
+Contact: vincent.nadoll@gmail.com
+X: @V1ncNet
+GitHub: V1ncNet
+Telegram: vinado
+Location: Dresden, Germany
+
+/* SITE */
+Last update: 2023-09-14
+Standards: HTML5, CSS3, JavaScript
+Components: Astro, Tailwind CSS, Font Awesome, Bootstrap
+Language: English
+Doctype: HTML5
+IDE: VS Code
