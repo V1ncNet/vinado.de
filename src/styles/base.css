@@ -3,3 +3,9 @@
 :root {
   --gray-dark: #6c757d;
 }
+
+@media (min-width: 768px) {
+  .md\:items-unset {
+    align-items: unset;
+  }
+}

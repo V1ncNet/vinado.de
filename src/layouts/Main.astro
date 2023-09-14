@@ -8,7 +8,7 @@ import "../styles/base.css";
 const _subTitle = Astro.props.subTitle;
 const subTitle = _subTitle ? ` • ${_subTitle}` : "";
 const title = "Vincent Nadoll" + subTitle;
-const { ogTitle = title, ogDescription } = Astro.props;
+const { ogTitle = title, ogDescription, classList } = Astro.props;
 ---
 
 <html lang="en">
@@ -24,12 +24,22 @@ const { ogTitle = title, ogDescription } = Astro.props;
     <script defer src="/fontawesome/js/fontawesome.js"></script>
   </head>
   <body>
-    <div class="container">
-      <Header />
-      <main>
-        <slot />
-      </main>
+    <div class="main flex flex-1 items-center justify-center mt-4 md:items-unset md:mt-24">
+        <div class="container">
+        <Header />
+        <main class:list={classList}>
+          <slot />
+        </main>
+      </div>
     </div>
     <Footer />
   </body>
 </html>
+
+<style>
+  @media screen and (min-width: 1200px) and (min-height: 900px) {
+    .main {
+      margin-top: 10rem;
+    }
+  }
+</style>
