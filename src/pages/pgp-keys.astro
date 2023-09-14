@@ -1,0 +1,37 @@
+---
+import Main from "../layouts/Main.astro";
+import Section from "../components/Section.astro";
+import pgpKeys from "../../public/pgp_keys.asc?raw";
+
+const subTitle = "PGP Keys";
+---
+
+<Main subTitle="PGP Keys">
+  <Section title="PGP Keys">
+    <table>
+      <tbody>
+        <tr>
+          <td>Fingerprint</td>
+          <td>1E9C 28E5 6E4F C136 ED7F 8DB8 B921 02E5 8DC1 9C84</td>
+        </tr>
+        <tr>
+          <td>64-Bit</td>
+          <td>B921 02E5 8DC1 9C84</td>
+        </tr>
+        <tr>
+          <td>Raw</td>
+          <td><a href="pgp_keys.asc" aria-label="Download GPG keys">pgp_keys.asc</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </Section>
+  <div>
+    <figure class="pgp">
+      <pre>curl {Astro.site}pgp_keys.asc | gpg --import</pre>
+    </figure>
+  </div>
+  <div>
+    <textarea readonly disabled aria-hidden="true" set:html={pgpKeys}>
+    </textarea>
+  </div>
+</Main>
