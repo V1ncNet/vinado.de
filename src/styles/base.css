@@ -1,6 +1,3 @@
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --white: #fff;
   --light: #f8f9fa;
@@ -35,16 +32,6 @@ a:focus {
 a:focus,
 a:active {
   outline: none
-}
-
-@media (min-width: 768px) {
-  .md\:items-unset {
-    align-items: unset;
-  }
-
-  .md\:pl-inherit {
-    padding-left: inherit;
-  }
 }
 
 @media screen and (prefers-color-scheme: dark) {

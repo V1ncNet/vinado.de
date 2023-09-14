@@ -1,0 +1,12 @@
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 768px) {
+  .md\:items-unset {
+    align-items: unset;
+  }
+
+  .md\:pl-inherit {
+    padding-left: inherit;
+  }
+}
