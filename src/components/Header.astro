@@ -1,9 +1,43 @@
 <header class="pb-8 text-center md:text-left md:flex items-center">
+  <picture class="mb-4 md:mb-0 md:mr-4">
+    <source
+      sizes="(min-width: 768px) 100px, 256px"
+      srcset="images/vincent_2x.webp 512w, images/vincent_1x.webp 256w, images/vincent_small_2x.webp 200w, images/vincent_small_1x.webp 100w"
+      type="image/webp"
+    />
+    <source
+      sizes="(min-width: 768px) 100px, 256px"
+      srcset="images/vincent_2x.jpg 512w, images/vincent_1x.jpg 256w, images/vincent_small_2x.jpg 200w, images/vincent_small_1x.jpg 100w"
+      type="image/jpeg"
+    />
+    <img
+      class="rounded-full max-w-full max-h-full"
+      src="images/vincent_1x.jpg"
+      width="256"
+      height="256"
+      alt="Photograph of myself"
+      title="Taken by Jean-Philippe Apel"
+      aria-labelledby="title"
+    />
+  </picture>
   <h1 class="md:inline-block md:text-5xl">Vincent Nadoll</h1>
 </header>
 
 <style>
   header {
     border-bottom: 1px solid var(--gray-dark);
+  }
+
+  picture {
+    height: auto;
+    width: 150px;
+    height: 150px;
+  }
+
+  @media screen and (min-width: 768px) {
+    picture {
+      width: 100px;
+      height: 100px;
+    }
   }
 </style>
