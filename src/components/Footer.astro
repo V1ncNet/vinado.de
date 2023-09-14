@@ -1,6 +1,4 @@
 ---
-import Navigation from "./Navigation.astro";
-
 const now = new Date();
 const year = now.getFullYear();
 ---
@@ -8,7 +6,9 @@ const year = now.getFullYear();
 <footer class="w-full text-sm text-center h-40p leading-40p md:h-60p md:leading-60p" aria-label="Main navigation">
   <p class="m-0">
     <span aria-hidden="true">&copy; {year}&nbsp;</span>
-    <Navigation />
+    <a href="/" aria-label="Homepage">Vincent Nadoll</a> |
+    <a href="/pgp-keys">PGP Keys</a> |
+    <a href="/cv">CV</a>
   </p>
 </footer>
 
