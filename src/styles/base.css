@@ -3,6 +3,34 @@
 
 :root {
   --gray-dark: #6c757d;
+  --dark: #212529;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+a:focus,
+a:active {
+  outline: none
 }
 
 @media (min-width: 768px) {
