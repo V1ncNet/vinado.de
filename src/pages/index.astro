@@ -1,27 +1,28 @@
 ---
 import Main from "../layouts/Main.astro";
 import Section from "../components/Section.astro";
+import Icon from "../components/Icon.astro";
 import Link from "../components/Link.astro";
 ---
 
 <Main>
   <Section title="Find me on">
     <ul>
-      <li><Link href="https://github.com/V1ncNet" value="GitHub" /></li>
-      <li><Link href="https://x.com/V1ncNet" value="X" /></li>
+      <li><Icon classList={["fab", "fa-github"]} /><Link href="https://github.com/V1ncNet" value="GitHub" /></li>
+      <li><Icon classList={["fab", "fa-x-twitter"]} /><Link href="https://x.com/V1ncNet" value="X" /></li>
     </ul>
   </Section>
   <Section title="I'm loving to">
     <ul>
-      <li><Link href="https://kammerchor-wernigerode.de" value="Sing @ Kammerchor Wernigerode" /></li>
-      <li><Link href="https://github.com/kammerchor-wernigerode" value="Code @ Kammerchor Wernigerode" /></li>
-      <li><Link href="https://ascii.coffee" value="Serve @ ascii Dresden" /></li>
+      <li><Icon classList={["fas", "fa-music"]} /><Link href="https://kammerchor-wernigerode.de" value="Sing @ Kammerchor Wernigerode" /></li>
+      <li><Icon classList={["fas", "fa-code"]} /><Link href="https://github.com/kammerchor-wernigerode" value="Code @ Kammerchor Wernigerode" /></li>
+      <li><Icon classList={["fas", "fa-coffee"]} /><Link href="https://ascii.coffee" value="Serve @ ascii Dresden" /></li>
     </ul>
   </Section>
   <Section title="Contact me via">
     <ul>
-      <li><Link href="https://t.me/vinado" value="Telegram" /></li>
-      <li><Link href="mailto:vincent.nadoll@gmail.com" value="Email" /></li>
+      <li><Icon classList={["fab", "fa-telegram"]} /><Link href="https://t.me/vinado" value="Telegram" /></li>
+      <li><Icon classList={["fas", "fa-envelope"]} /><Link href="mailto:vincent.nadoll@gmail.com" value="Email" /></li>
     </ul>
   </Section>
 </Main>
