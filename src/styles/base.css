@@ -46,3 +46,12 @@ a:active {
     padding-left: inherit;
   }
 }
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --white: #212529;
+    --light: #6c757d;
+    --gray-dark: #f8f9fa;
+    --dark: #fff;
+  }
+}
