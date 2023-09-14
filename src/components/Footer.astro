@@ -5,9 +5,19 @@ const now = new Date();
 const year = now.getFullYear();
 ---
 
-<footer aria-label="Main navigation">
-  <p>
-    <span aria-hidden="true">&copy; {year}</span>
+<footer class="w-full text-sm text-center h-40p leading-40p md:h-60p md:leading-60p" aria-label="Main navigation">
+  <p class="m-0">
+    <span aria-hidden="true">&copy; {year}&nbsp;</span>
     <Navigation />
   </p>
 </footer>
+
+<style>
+  footer {
+    color: var(--gray-dark);
+  }
+
+  footer a {
+    color: var(--gray-dark);
+  }
+</style>
