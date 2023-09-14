@@ -22,7 +22,7 @@ import Link from "../components/Link.astro";
   <Section title="Contact me via">
     <ul>
       <li><Icon classList={["fab", "fa-telegram", "mr-1"]} /><Link href="https://t.me/vinado" value="Telegram" /></li>
-      <li><Icon classList={["fas", "fa-envelope", "mr-1"]} /><Link href="mailto:vincent.nadoll@gmail.com" value="Email" /></li>
+      <li><Icon classList={["fas", "fa-envelope", "mr-1"]} /><script is:inline src="/encrypted-mail.labeled.js"></script></li>
     </ul>
   </Section>
 </Main>
