@@ -4,9 +4,12 @@ import Section from "../components/Section.astro";
 import pgpKeys from "../../public/pgp_keys.asc?raw";
 
 const subTitle = "PGP Keys";
+const description = `curl ${Astro.site}pgp_keys.asc | gpg --import`;
+const ogTitle = subTitle;
+const ogDescription = description;
 ---
 
-<Main subTitle="PGP Keys">
+<Main subTitle="PGP Keys" ogTitle={ogTitle} ogDescription={ogDescription}>
   <Section title="PGP Keys">
     <table>
       <tbody>

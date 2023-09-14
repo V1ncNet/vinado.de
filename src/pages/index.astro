@@ -3,9 +3,13 @@ import Main from "../layouts/Main.astro";
 import Section from "../components/Section.astro";
 import Icon from "../components/Icon.astro";
 import Link from "../components/Link.astro";
+
+const description = "Find me on X, GitHub - Barista and Maintainer at ascii Dresden - Contact me via Telegram, Email";
+const ogTitle = "Homepage";
+const ogDescription = description;
 ---
 
-<Main>
+<Main ogTitle={ogTitle} ogDescription={ogDescription}>
   <Section title="Find me on">
     <ul>
       <li><Icon classList={["fab", "fa-github", "mr-1"]} /><Link href="https://github.com/V1ncNet" value="GitHub" /></li>
