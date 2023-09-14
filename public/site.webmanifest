@@ -1,0 +1,20 @@
+{
+  "name": "Vincent Nadoll",
+  "short_name": "Vinado",
+  "start_url": ".",
+  "display": "minimal-ui",
+  "background_color": "#38485b",
+  "icons": [
+    {
+      "src": "theme/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "theme/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#38485b"
+}

@@ -1,5 +1,6 @@
 ---
 import OpenGraph from "../components/OpenGraph.astro";
+import Theme from "../components/Theme.astro";
 import StuckPixel from "../components/StuckPixel.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -15,13 +16,13 @@ const { ogTitle = title, ogDescription, classList, meta } = Astro.props;
 <html class="h-full" lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="author" content="Vincent Nadoll" />
     <meta name="description" content={meta.description} />
     <meta name="keywords" content={meta.keywords.join(", ")} />
     <OpenGraph title={ogTitle} description={ogDescription} />
+    <Theme />
     <link rel="author" type="text/plain" href="humans.txt" />
     <link rel="sitemap" type="application/xml" href="sitemap-index.xml" />
     <title>{title}</title>
