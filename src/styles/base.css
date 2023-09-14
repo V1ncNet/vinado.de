@@ -2,8 +2,10 @@
 @tailwind utilities;
 
 :root {
+  --light: #f8f9fa;
   --gray-dark: #6c757d;
   --dark: #212529;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 *,

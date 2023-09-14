@@ -11,7 +11,7 @@ const ogDescription = description;
 
 <Main subTitle="PGP Keys" ogTitle={ogTitle} ogDescription={ogDescription}>
   <Section title="PGP Keys">
-    <table>
+    <table class="w-full">
       <tbody>
         <tr>
           <td>Fingerprint</td>
@@ -29,12 +29,35 @@ const ogDescription = description;
     </table>
   </Section>
   <div>
-    <figure class="pgp">
-      <pre>curl {Astro.site}pgp_keys.asc | gpg --import</pre>
+    <figure class="mx-0 my-4 p-4 sm:p-6">
+      <pre class="overflow-auto p-0 my-0 bg-transparent border-0">curl {Astro.site}pgp_keys.asc | gpg --import</pre>
     </figure>
   </div>
   <div>
-    <textarea readonly disabled aria-hidden="true" set:html={pgpKeys}>
+    <textarea class="w-full text-sm resize-y" readonly disabled aria-hidden="true" set:html={pgpKeys}>
     </textarea>
   </div>
 </Main>
+
+<style>
+  table td+td {
+    text-align: right;
+  }
+
+  figure {
+    background-color: var(--light);
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  textarea {
+    height: 200px;
+    padding: 0.5rem;
+    padding-right: 0;
+    padding-bottom: 0.063rem;
+    background-color: var(--light);
+    border-color: var(--light);
+    font-family: var(--font-family-monospace);
+    color: var(--dark);
+    line-height: 1.42857;
+  }
+</style>
