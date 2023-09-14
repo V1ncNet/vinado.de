@@ -26,9 +26,6 @@ const { ogTitle = title, ogDescription, classList, meta } = Astro.props;
     <link rel="author" type="text/plain" href="humans.txt" />
     <link rel="sitemap" type="application/xml" href="sitemap-index.xml" />
     <title>{title}</title>
-    <script defer src="/fontawesome/js/brands.js"></script>
-    <script defer src="/fontawesome/js/solid.js"></script>
-    <script defer src="/fontawesome/js/fontawesome.js"></script>
   </head>
   <body class="h-full flex flex-col text-base font-light md:text-xl !leading-normal">
     <StuckPixel />
@@ -41,6 +38,9 @@ const { ogTitle = title, ogDescription, classList, meta } = Astro.props;
       </div>
     </div>
     <Footer />
+    <script defer src="/fontawesome/js/brands.js"></script>
+    <script defer src="/fontawesome/js/solid.js"></script>
+    <script defer src="/fontawesome/js/fontawesome.js"></script>
   </body>
 </html>
 
