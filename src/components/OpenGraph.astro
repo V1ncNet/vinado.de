@@ -6,5 +6,5 @@ const { title, description } = Astro.props;
 <meta property="og:site_name" content="Vincent Nadoll" />
 <meta property="og:description" content={description}/>
 <meta property="og:type" content="website" />
-<meta property="og:image" content="/images/vincent_1x.jpg" />
+<meta property="og:image" content={(Astro.site || "") + "images/vincent_1x.jpg"} />
 <meta property="og:url" content={Astro.site} />
