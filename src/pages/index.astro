@@ -1,6 +1,27 @@
 ---
 import Main from "../layouts/Main.astro";
+import Section from "../components/Section.astro";
+import Link from "../components/Link.astro";
 ---
 
 <Main>
+  <Section title="Find me on">
+    <ul>
+      <li><Link href="https://github.com/V1ncNet" value="GitHub" /></li>
+      <li><Link href="https://x.com/V1ncNet" value="X" /></li>
+    </ul>
+  </Section>
+  <Section title="I'm loving to">
+    <ul>
+      <li><Link href="https://kammerchor-wernigerode.de" value="Sing @ Kammerchor Wernigerode" /></li>
+      <li><Link href="https://github.com/kammerchor-wernigerode" value="Code @ Kammerchor Wernigerode" /></li>
+      <li><Link href="https://ascii.coffee" value="Serve @ ascii Dresden" /></li>
+    </ul>
+  </Section>
+  <Section title="Contact me via">
+    <ul>
+      <li><Link href="https://t.me/vinado" value="Telegram" /></li>
+      <li><Link href="mailto:vincent.nadoll@gmail.com" value="Email" /></li>
+    </ul>
+  </Section>
 </Main>
