@@ -7,9 +7,13 @@ const subTitle = "PGP Keys";
 const description = `curl ${Astro.site}pgp_keys.asc | gpg --import`;
 const ogTitle = subTitle;
 const ogDescription = description;
+const meta = {
+  description,
+  keywords: [],
+};
 ---
 
-<Main subTitle="PGP Keys" ogTitle={ogTitle} ogDescription={ogDescription}>
+<Main subTitle="PGP Keys" ogTitle={ogTitle} ogDescription={ogDescription} meta={meta}>
   <Section title="PGP Keys">
     <table class="w-full">
       <tbody>

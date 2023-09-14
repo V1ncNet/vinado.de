@@ -8,7 +8,7 @@ import "../styles/base.css";
 const _subTitle = Astro.props.subTitle;
 const subTitle = _subTitle ? ` • ${_subTitle}` : "";
 const title = "Vincent Nadoll" + subTitle;
-const { ogTitle = title, ogDescription, classList } = Astro.props;
+const { ogTitle = title, ogDescription, classList, meta } = Astro.props;
 ---
 
 <html class="h-full" lang="en">
@@ -17,6 +17,9 @@ const { ogTitle = title, ogDescription, classList } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Vincent Nadoll" />
+    <meta name="description" content={meta.description} />
+    <meta name="keywords" content={meta.keywords.join(", ")} />
     <OpenGraph title={ogTitle} description={ogDescription} />
     <title>{title}</title>
     <script defer src="/fontawesome/js/brands.js"></script>

@@ -7,9 +7,13 @@ import Link from "../components/Link.astro";
 const description = "Find me on X, GitHub - Barista and Maintainer at ascii Dresden - Contact me via Telegram, Email";
 const ogTitle = "Homepage";
 const ogDescription = description;
+const meta = {
+  description,
+  keywords: ["Vincent Nadoll", "Vinado", "Dresden", "ascii", "Kammerchor Wernigerode", "Vinado Design"],
+};
 ---
 
-<Main classList={["grid", "grid-cols-1", "md:grid-cols-3", "md:gap-4"]} ogTitle={ogTitle} ogDescription={ogDescription}>
+<Main classList={["grid", "grid-cols-1", "md:grid-cols-3", "md:gap-4"]} ogTitle={ogTitle} ogDescription={ogDescription} meta={meta}>
   <Section title="Find me on">
     <ul class="pl-0 md:pl-inherit list-none">
       <li><Icon classList={["fab", "fa-github", "fa-fw", "mr-1"]} /><Link href="https://github.com/V1ncNet" value="GitHub" /></li>
