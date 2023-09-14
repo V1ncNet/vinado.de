@@ -9,4 +9,8 @@
   .md\:items-unset {
     align-items: unset;
   }
+
+  .md\:pl-inherit {
+    padding-left: inherit;
+  }
 }
