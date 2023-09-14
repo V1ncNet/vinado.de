@@ -24,8 +24,8 @@ const { ogTitle = title, ogDescription, classList, meta } = Astro.props;
     <meta name="keywords" content={meta.keywords.join(", ")} />
     <OpenGraph title={ogTitle} description={ogDescription} />
     <Theme />
-    <link rel="author" type="text/plain" href="humans.txt" />
-    <link rel="sitemap" type="application/xml" href="sitemap-index.xml" />
+    <link rel="author" type="text/plain" href="/humans.txt" />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <title>{title}</title>
   </head>
   <body class="h-full flex flex-col text-base font-light md:text-xl !leading-normal">
