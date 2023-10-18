@@ -7,7 +7,7 @@ Telegram: vinado
 Location: Dresden, Germany
 
 /* SITE */
-Last update: 2023-09-14
+Last update: 2023-10-18
 Standards: HTML5, CSS3, JavaScript
 Components: Astro, Tailwind CSS, Font Awesome, Bootstrap
 Language: English
