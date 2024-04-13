@@ -16,8 +16,7 @@ RUN npm run build -- --site=${SITE}
 
 
 FROM nginx:1.25.4
-
-LABEL maintainer="vincent.nadoll@gmail.com"
+LABEL org.opencontainers.image.authors="vincent.nadoll@gmail.com"
 
 RUN ( \
     echo "server {"; \
