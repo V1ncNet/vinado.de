@@ -7,7 +7,7 @@ RUN npm install
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
-ARG SITE
+ARG SITE=https://vinado.de
 ENV SITE=${SITE}
 
 COPY . ./
