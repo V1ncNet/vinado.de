@@ -1,4 +1,4 @@
-FROM node:hydrogen-alpine as builder
+FROM node:18.20.2-alpine3.19 as builder
 
 WORKDIR             /usr/src/app
 
@@ -15,7 +15,7 @@ COPY . ./
 RUN npm run build -- --site=${SITE}
 
 
-FROM nginx:mainline
+FROM nginx:1.25.4
 
 LABEL maintainer="vincent.nadoll@gmail.com"
 
