@@ -1,0 +1,12 @@
+---
+const { title, description } = Astro.props;
+
+const domain = Astro.site && new URL(Astro.site).hostname;
+---
+
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content={domain}>
+<meta property="twitter:url" content={Astro.site}>
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={(Astro.site || "") + "images/vincent_1x.jpg"} />

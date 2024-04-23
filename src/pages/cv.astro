@@ -1,6 +1,7 @@
 ---
 import OpenGraph from "../components/OpenGraph.astro";
 import Theme from "../components/Theme.astro";
+import Twitter from "../components/Twitter.astro";
 
 const title = "Vincent Nadoll • Lebenslauf";
 const ogTitle = "Lebenslauf";
@@ -14,6 +15,7 @@ const ogDescription = "Mehrjährige Erfahrung in Softwareentwicklung - Bachelor 
     <meta name="author" content="Vincent Nadoll" />
     <meta name="robots" content="noindex" />
     <OpenGraph title={ogTitle} description={ogDescription} />
+    <Twitter title={ogTitle} description={ogDescription} />
     <Theme />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
     <link rel="author" type="text/plain" href="/humans.txt" />
