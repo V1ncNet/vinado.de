@@ -1,23 +1,14 @@
-### Git ###
-.git/
-.gitignore
-.gitmodules
-
-### JetBrains ###
-.idea/
-
-### VS Code ###
-.vscode/
-.history/
-
-### Node ###
-logs/
-node_modules/
-
-### MacOS ###
+.astro/
 .DS_Store
-
-### Project ###
+.git/
+.github/
+.idea/
+.vscode/
 dist/
+node_modules/
+.dockerignore
 .editorconfig
-README.md
+.env
+.gitignore
+.nvmrc
+Dockerfile
