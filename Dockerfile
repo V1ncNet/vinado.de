@@ -53,6 +53,8 @@ RUN ( \
     echo "        access_log off;"; \
     echo "        add_header Cache-Control \"public\";"; \
     echo "      }"; \
+    echo ""; \
+    echo "      include /etc/nginx/location.d/*.conf;"; \
     echo "    }"; \
     echo ""; \
     echo "    error_page   500 502 503 504  /50x.html;"; \
@@ -60,6 +62,7 @@ RUN ( \
     echo "        root   /usr/share/nginx/html;"; \
     echo "    }"; \
     echo "}"; \
-  ) >  /etc/nginx/conf.d/default.conf
+  ) >  /etc/nginx/conf.d/default.conf; \
+  mkdir -p /etc/nginx/location.d
 
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
