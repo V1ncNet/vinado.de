@@ -53,9 +53,6 @@ RUN ( \
     echo "        access_log off;"; \
     echo "        add_header Cache-Control \"public\";"; \
     echo "      }"; \
-    echo "      location /ca/ {"; \
-    echo "        autoindex on;"; \
-    echo "      }"; \
     echo "    }"; \
     echo ""; \
     echo "    error_page   500 502 503 504  /50x.html;"; \
@@ -66,4 +63,3 @@ RUN ( \
   ) >  /etc/nginx/conf.d/default.conf
 
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
-RUN mkdir                             /usr/share/nginx/html/ca
