@@ -15,7 +15,7 @@ COPY . ./
 RUN npm run build -- --site=${SITE}
 
 
-FROM nginx:1.25.4
+FROM nginx:1.27.3
 LABEL org.opencontainers.image.authors="vincent.nadoll@gmail.com"
 
 RUN ( \
