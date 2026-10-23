@@ -15,13 +15,15 @@ COPY . ./
 RUN npm run build -- --site=${SITE}
 
 
-FROM nginx:1.27.3
+FROM nginxinc/nginx-unprivileged:1.31.7@sha256:09b0d3eda2aa592d2487f284519419015cab010d7df16cd0fe224b585fc60eb6
 LABEL org.opencontainers.image.authors="vincent.nadoll@gmail.com"
+
+USER root
 
 RUN ( \
     echo "server {"; \
-    echo "    listen       80;"; \
-    echo "    #listen  [::]:80;"; \
+    echo "    listen       8080;"; \
+    echo "    #listen  [::]:8080;"; \
     echo "    server_name  localhost;"; \
     echo ""; \
     echo "    location / {"; \
@@ -66,3 +68,5 @@ RUN ( \
   mkdir -p /etc/nginx/location.d
 
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+
+USER 101
