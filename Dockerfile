@@ -26,6 +26,8 @@ RUN ( \
     echo "    #listen  [::]:8080;"; \
     echo "    server_name  localhost;"; \
     echo ""; \
+    echo "    add_header Content-Security-Policy \"default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'\" always;"; \
+    echo ""; \
     echo "    location / {"; \
     echo "        root   /usr/share/nginx/html;"; \
     echo "        index  index.html index.htm;"; \
