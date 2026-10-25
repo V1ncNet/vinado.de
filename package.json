@@ -15,5 +15,15 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.4.2",
     "tailwindcss": "^4.3.3"
+  },
+  "overrides": {
+    "@playform/compress": {
+      "sharp": "^0.35.5",
+      "svgo": "^4.1.0",
+      "deepmerge-ts": "^8.0.2"
+    },
+    "@playform/pipe": {
+      "deepmerge-ts": "^8.0.2"
+    }
   }
 }
