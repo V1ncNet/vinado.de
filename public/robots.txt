@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vinado.de/sitemap-index.xml
