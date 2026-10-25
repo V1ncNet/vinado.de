@@ -3,7 +3,7 @@ FROM --platform=$BUILDPLATFORM node:26.12.1-alpine3.24@sha256:40cd011b55415bc894
 WORKDIR             /usr/src/app
 
 COPY package*.json  .
-RUN npm ci
+RUN npm ci && npm audit signatures
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
@@ -25,6 +25,8 @@ RUN ( \
     echo "    listen       8080;"; \
     echo "    #listen  [::]:8080;"; \
     echo "    server_name  localhost;"; \
+    echo ""; \
+    echo "    add_header Content-Security-Policy \"default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'\" always;"; \
     echo ""; \
     echo "    location / {"; \
     echo "        root   /usr/share/nginx/html;"; \
