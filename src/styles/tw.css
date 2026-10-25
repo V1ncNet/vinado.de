@@ -1,12 +1,20 @@
-@tailwind components;
-@tailwind utilities;
+@layer theme, base, components, utilities;
 
-@media (min-width: 768px) {
-  .md\:items-unset {
-    align-items: unset;
-  }
+@import "tailwindcss/theme.css" layer(theme);
+@import "./base.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
 
-  .md\:pl-inherit {
-    padding-left: inherit;
-  }
+@source not "../../docs";
+@source not "../../public";
+
+@utility container {
+  margin-inline: auto;
+}
+
+@utility items-unset {
+  align-items: unset;
+}
+
+@utility pl-inherit {
+  padding-left: inherit;
 }

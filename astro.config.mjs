@@ -1,26 +1,25 @@
 import { defineConfig } from 'astro/config';
 
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import Compress from "@playform/compress";
-import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
+  compressHTML: true,
   integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
     sitemap({
       serialize(item) {
         item.lastmod = new Date();
         return item;
       },
     }),
-    robotsTxt(),
     Compress({
       Image: false,
       Exclude: (file) => /safari-pinned-tab\.svg$/.test(file),
     }),
-  ]
+  ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
