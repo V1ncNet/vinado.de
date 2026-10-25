@@ -1,13 +1,13 @@
 /* TEAM */
 Owner: Vincent Nadoll
-Contact: vincent.nadoll@gmail.com
+Contact: https://vinado.de
 X: @V1ncNet
 GitHub: V1ncNet
 Telegram: vinado
 Location: Dresden, Germany
 
 /* SITE */
-Last update: 2023-10-18
+Last update: 2026-10-25
 Standards: HTML5, CSS3, JavaScript
 Components: Astro, Tailwind CSS, Font Awesome
 Language: English
