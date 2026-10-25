@@ -3,7 +3,7 @@ FROM --platform=$BUILDPLATFORM node:26.12.1-alpine3.24@sha256:40cd011b55415bc894
 WORKDIR             /usr/src/app
 
 COPY package*.json  .
-RUN npm install
+RUN npm ci
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
