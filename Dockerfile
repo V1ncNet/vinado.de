@@ -16,7 +16,7 @@ RUN npm run build -- --site=${SITE}
 
 
 FROM nginxinc/nginx-unprivileged:1.31.7@sha256:09b0d3eda2aa592d2487f284519419015cab010d7df16cd0fe224b585fc60eb6
-LABEL org.opencontainers.image.authors="vincent.nadoll@gmail.com"
+LABEL org.opencontainers.image.authors="Vincent Nadoll (https://vinado.de)"
 
 USER root
 
