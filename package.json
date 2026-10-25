@@ -25,5 +25,8 @@
     "@playform/pipe": {
       "deepmerge-ts": "^8.0.2"
     }
+  },
+  "allowScripts": {
+    "fsevents": false
   }
 }
