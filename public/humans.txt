@@ -9,7 +9,7 @@ Location: Dresden, Germany
 /* SITE */
 Last update: 2023-10-18
 Standards: HTML5, CSS3, JavaScript
-Components: Astro, Tailwind CSS, Font Awesome, Bootstrap
+Components: Astro, Tailwind CSS, Font Awesome
 Language: English
 Doctype: HTML5
 IDE: VS Code
