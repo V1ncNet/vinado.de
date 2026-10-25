@@ -6,6 +6,7 @@ import Compress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
+  compressHTML: true,
   integrations: [
     sitemap({
       serialize(item) {
