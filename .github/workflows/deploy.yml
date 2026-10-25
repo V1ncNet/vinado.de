@@ -4,6 +4,10 @@ on:
   push:
     tags:
       - "v*"
+  pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -26,6 +30,7 @@ jobs:
             type=semver,pattern={{ major }}.{{ minor }}
             type=semver,pattern={{ version }}
       - name: Login to Docker Hub
+        if: github.event_name == 'push'
         uses: docker/login-action@81c6f93d4bc991e510b342a00b419b3bb4efc5c6 # v4.7.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -37,6 +42,6 @@ jobs:
           build-args: |
             SITE=https://vinado.de
           platforms: linux/amd64,linux/arm64
-          push: true
+          push: ${{ github.event_name == 'push' }}
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
