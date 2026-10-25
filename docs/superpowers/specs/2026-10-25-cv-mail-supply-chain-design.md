@@ -92,7 +92,7 @@ Die UIDs in `public/pgp_keys.asc` und auf `/pgp-keys/` bleiben, denn ein öffent
 - **Environment für Docker Hub.** Der Push läuft in einem GitHub Environment, das nur Tags `v*` zulässt. Die Secrets `DOCKERHUB_USERNAME` und `DOCKERHUB_TOKEN` liegen dann nur dort. PR-Läufe sehen sie nicht. Eine manuelle Freigabe pro Release gibt es nicht.
 - **SBOM und Provenance.** `docker/build-push-action` hängt beides an, mit `sbom: true` und `provenance: mode=max`.
 - **Content Security Policy** als Header in der nginx-Konfiguration im `Dockerfile`. Nach Teil 1 und 2 laden alle Seiten nur noch Ressourcen von der eigenen Origin. Die Policy ist so streng, wie die Seiten es zulassen, und gilt für alle Seiten.
-  - Bekannte Stolpersteine: FontAwesome (`public/fontawesome/js`) fügt zur Laufzeit ein `<style>`-Element ein. Astro kann kleine Stylesheets inline in das HTML schreiben. Beides muss die Policy erlauben, entweder über Hashes oder über eine Änderung an der Quelle, ohne pauschal `'unsafe-inline'` für Scripts.
+  - Bekannte Stolpersteine: FontAwesome (`public/fontawesome/js`) fügt zur Laufzeit ein `<style>`-Element ein. Astro kann kleine Stylesheets inline in das HTML schreiben. Die Policy erlaubt deshalb `style-src 'self' 'unsafe-inline'`. Hashes würden bei jedem Build oder FontAwesome-Update brechen. Für Scripts gilt strikt `script-src 'self'` ohne `'unsafe-inline'`.
   - Prüfung: Alle drei Seiten laden im Image ohne CSP-Verletzung in der Browser-Konsole. Sie sehen aus wie ohne Policy.
 - Die bestehenden Warnungen im PR-Lauf („No Docker image version has been generated“, „No output specified“) sind erwartet.
 
@@ -124,7 +124,6 @@ Der letzte Commit des dritten PRs setzt `package.json` auf `1.6.0`, wie bei `v1.
 - Die genaue Technik von Grid, Flex und Print-CSS, solange das beschriebene Verhalten stimmt.
 - Das Verfahren, mit dem das E-Mail-Script die Adresse verbirgt.
 - Die Dauer des Dependabot-`cooldown`.
-- Wie die CSP Inline-Styles erlaubt.
 
 ## Nebenbei
 
