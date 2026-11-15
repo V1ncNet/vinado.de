@@ -20,6 +20,10 @@ LABEL org.opencontainers.image.authors="Vincent Nadoll (https://vinado.de)"
 
 USER root
 
+RUN apt-get update \
+  && apt-get upgrade -y --no-install-recommends \
+  && rm -rf /var/lib/apt/lists/*
+
 RUN ( \
     echo "server {"; \
     echo "    listen       8080;"; \

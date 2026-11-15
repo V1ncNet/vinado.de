@@ -26,7 +26,6 @@ jobs:
           REPOSITORY: ${{ github.server_url }}/${{ github.repository }}
         run: |
           tag=$(git ls-remote --tags --refs "$REPOSITORY" 'v*' | cut -d/ -f3 | sort -V | tail -1)
-          echo "tag=$tag" >> "$GITHUB_OUTPUT"
           echo "version=${tag#v}" >> "$GITHUB_OUTPUT"
       - name: Scan published image
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
@@ -41,11 +40,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-          TAG: ${{ steps.release.outputs.tag }}
         run: |
           count=$(jq '[.Results[]?.Vulnerabilities[]?] | length' trivy.json)
           echo "Fixable HIGH/CRITICAL OS vulnerabilities: $count"
           if [ "$count" -gt 0 ]; then
-            gh workflow run deploy.yml --ref "$TAG"
+            gh workflow run deploy.yml
             exit 1
           fi

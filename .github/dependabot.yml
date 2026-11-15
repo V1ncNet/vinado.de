@@ -6,12 +6,18 @@ updates:
       interval: weekly
     cooldown:
       default-days: 7
+    groups:
+      npm:
+        patterns: ["*"]
   - package-ecosystem: docker
     directory: /
     schedule:
       interval: weekly
     cooldown:
       default-days: 7
+    groups:
+      docker:
+        patterns: ["*"]
     ignore:
       - dependency-name: node
         update-types: ["version-update:semver-major"]
@@ -21,3 +27,6 @@ updates:
       interval: weekly
     cooldown:
       default-days: 7
+    groups:
+      github-actions:
+        patterns: ["*"]
