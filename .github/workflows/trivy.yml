@@ -47,4 +47,5 @@ jobs:
           echo "Fixable HIGH/CRITICAL OS vulnerabilities: $count"
           if [ "$count" -gt 0 ]; then
             gh workflow run deploy.yml --ref "$TAG"
+            exit 1
           fi
