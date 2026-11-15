@@ -2,39 +2,85 @@ name: Build and push Docker image
 
 on:
   push:
-    tags:
-      - "v*"
+    branches: [main]
+    paths-ignore: ["docs/**", ".github/workflows/trivy.yml", ".github/dependabot.yml"]
   pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
     environment: ${{ github.event_name != 'pull_request' && 'docker-hub' || '' }}
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      version: ${{ steps.version.outputs.version }}
 
     steps:
       - name: Checkout Git repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 0
+      - name: Determine the version
+        id: version
+        env:
+          EVENT: ${{ github.event_name }}
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+        run: |
+          latest=$(git tag --list 'v*' --sort=-version:refname | head -n 1)
+          case "$EVENT" in
+            workflow_dispatch)
+              version=$latest
+              git checkout --detach "refs/tags/$latest"
+              ;;
+            push)
+              IFS=. read -r major minor patch <<<"${latest#v}"
+              for attempt in 1 2 3 4 5; do
+                pulls=$(gh api "repos/$REPOSITORY/commits/$SHA/pulls")
+                [ "$(jq length <<<"$pulls")" -gt 0 ] && break
+                [ "$attempt" -lt 5 ] && sleep 5
+              done
+              labels=$(jq -r '.[0].labels[]?.name' <<<"$pulls")
+              echo "Labels of the merged pull request: ${labels:-none}"
+              if grep -qx 'release:major' <<<"$labels"; then
+                version="v$((major + 1)).0.0"
+              elif grep -qx 'release:minor' <<<"$labels"; then
+                version="v$major.$((minor + 1)).0"
+              else
+                version="v$major.$minor.$((patch + 1))"
+              fi
+              ;;
+            *) version="" ;;
+          esac
+          echo "Releasing ${version:-nothing}"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4.4.0
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
       - name: Create image metadata
         id: metadata
+        if: steps.version.outputs.version != ''
         uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6.2.0
         with:
           images: vinado/vinado.de
           tags: |
-            type=semver,pattern={{ major }}
-            type=semver,pattern={{ major }}.{{ minor }}
-            type=semver,pattern={{ version }}
+            type=semver,pattern={{ major }},value=${{ steps.version.outputs.version }}
+            type=semver,pattern={{ major }}.{{ minor }},value=${{ steps.version.outputs.version }}
+            type=semver,pattern={{ version }},value=${{ steps.version.outputs.version }}
       - name: Login to Docker Hub
-        if: github.event_name != 'pull_request'
+        if: steps.version.outputs.version != ''
         uses: docker/login-action@81c6f93d4bc991e510b342a00b419b3bb4efc5c6 # v4.7.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -46,11 +92,27 @@ jobs:
           build-args: |
             SITE=https://vinado.de
           platforms: linux/amd64,linux/arm64
-          push: ${{ github.event_name != 'pull_request' }}
+          push: ${{ steps.version.outputs.version != '' }}
           sbom: true
           provenance: mode=max
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
+
+  tag:
+    if: github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Tag the released commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          VERSION: ${{ needs.build.outputs.version }}
+          SHA: ${{ github.sha }}
+        run: gh api "repos/$REPOSITORY/git/refs" -f "ref=refs/tags/$VERSION" -f "sha=$SHA"
 
   zizmor:
     if: github.event_name == 'pull_request'
