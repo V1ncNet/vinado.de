@@ -15,6 +15,11 @@ jobs:
       contents: read
 
     steps:
+      - name: Keep scheduled scan enabled
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow enable trivy.yml
       - name: Find latest release tag
         id: release
         env:
