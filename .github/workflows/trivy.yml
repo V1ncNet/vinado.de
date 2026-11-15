@@ -1,0 +1,51 @@
+name: Rebuild image on vulnerable base
+
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+
+    steps:
+      - name: Keep scheduled scan enabled
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow enable trivy.yml
+      - name: Find latest release tag
+        id: release
+        env:
+          REPOSITORY: ${{ github.server_url }}/${{ github.repository }}
+        run: |
+          tag=$(git ls-remote --tags --refs "$REPOSITORY" 'v*' | cut -d/ -f3 | sort -V | tail -1)
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "version=${tag#v}" >> "$GITHUB_OUTPUT"
+      - name: Scan published image
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: vinado/vinado.de:${{ steps.release.outputs.version }}
+          vuln-type: os
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          format: json
+          output: trivy.json
+      - name: Rebuild latest release if fixes are available
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          count=$(jq '[.Results[]?.Vulnerabilities[]?] | length' trivy.json)
+          echo "Fixable HIGH/CRITICAL OS vulnerabilities: $count"
+          if [ "$count" -gt 0 ]; then
+            gh workflow run deploy.yml --ref "$TAG"
+            exit 1
+          fi
