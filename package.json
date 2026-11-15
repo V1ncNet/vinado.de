@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:e2e": "npm --prefix e2e test --"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

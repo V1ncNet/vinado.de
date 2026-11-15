@@ -1,0 +1,28 @@
+services:
+  site:
+    build:
+      context: ..
+      args:
+        SITE: https://vinado.de
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/"]
+      interval: 1s
+      timeout: 2s
+      retries: 30
+
+  playwright:
+    image: mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION:?}-noble
+    working_dir: /e2e
+    volumes:
+      - .:/e2e
+      - /e2e/node_modules
+    ipc: host
+    init: true
+    environment:
+      CI:
+      BASE_URL: http://site:8080
+    depends_on:
+      site:
+        condition: service_healthy
+    entrypoint: ["sh", "-c", "npm ci --ignore-scripts --no-audit --no-fund && exec \"$$@\"", "--"]
+    command: ["npx", "playwright", "test"]

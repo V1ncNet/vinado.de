@@ -5,6 +5,7 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 @source not "../../docs";
+@source not "../../e2e";
 @source not "../../public";
 
 @utility container {

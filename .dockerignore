@@ -12,3 +12,4 @@ node_modules/
 .gitignore
 .nvmrc
 Dockerfile
+e2e/

@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "./run.sh"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65"
+  }
+}

@@ -23,3 +23,7 @@ pnpm-debug.log*
 # JetBrains IDEs
 .idea/
 .superpowers/
+
+# Playwright
+test-results/
+playwright-report/

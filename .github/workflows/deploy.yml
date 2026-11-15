@@ -3,7 +3,7 @@ name: Build and push Docker image
 on:
   push:
     branches: [main]
-    paths-ignore: ["docs/**", ".github/workflows/trivy.yml", ".github/dependabot.yml"]
+    paths-ignore: ["docs/**", "e2e/**", ".github/workflows/e2e.yml", ".github/workflows/trivy.yml", ".github/dependabot.yml"]
   pull_request:
   workflow_dispatch:
 
