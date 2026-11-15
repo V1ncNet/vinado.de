@@ -1,0 +1,65 @@
+name: End-to-end tests
+
+on:
+  pull_request:
+    paths:
+      - "src/**"
+      - "public/**"
+      - "e2e/**"
+      - "package.json"
+      - "package-lock.json"
+      - "astro.config.mjs"
+      - "tsconfig.json"
+      - "Dockerfile"
+      - ".dockerignore"
+      - ".github/workflows/e2e.yml"
+  workflow_dispatch:
+    inputs:
+      update-snapshots:
+        description: Regenerate the reference screenshots
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CI: true
+
+    steps:
+      - name: Checkout Git repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Run end-to-end tests
+        env:
+          UPDATE_SNAPSHOTS: ${{ inputs.update-snapshots }}
+        run: |
+          if [ "$UPDATE_SNAPSHOTS" = "true" ]; then
+            npm run test:e2e -- --update-snapshots
+          else
+            npm run test:e2e
+          fi
+      - name: Verify that no test was skipped
+        if: always()
+        run: jq -e '.stats.skipped == 0' e2e/test-results/results.json
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: playwright-report
+          path: e2e/playwright-report/
+      - name: Upload screenshots
+        if: failure() || inputs.update-snapshots
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: screenshots
+          path: e2e/tests/__screenshots__/
