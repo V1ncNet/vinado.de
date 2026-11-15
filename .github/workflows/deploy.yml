@@ -5,6 +5,7 @@ on:
     tags:
       - "v*"
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -12,7 +13,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: ${{ github.event_name == 'push' && 'docker-hub' || '' }}
+    environment: ${{ github.event_name != 'pull_request' && 'docker-hub' || '' }}
 
     steps:
       - name: Checkout Git repository
@@ -33,7 +34,7 @@ jobs:
             type=semver,pattern={{ major }}.{{ minor }}
             type=semver,pattern={{ version }}
       - name: Login to Docker Hub
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         uses: docker/login-action@81c6f93d4bc991e510b342a00b419b3bb4efc5c6 # v4.7.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -45,7 +46,7 @@ jobs:
           build-args: |
             SITE=https://vinado.de
           platforms: linux/amd64,linux/arm64
-          push: ${{ github.event_name == 'push' }}
+          push: ${{ github.event_name != 'pull_request' }}
           sbom: true
           provenance: mode=max
           tags: ${{ steps.metadata.outputs.tags }}
