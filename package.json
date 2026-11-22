@@ -11,7 +11,7 @@
     "test:e2e": "npm --prefix e2e test --"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/sitemap": "^3.7.5",
     "@playform/compress": "^0.2.5",
     "@tailwindcss/vite": "^4.3.5",
     "astro": "^7.4.12",
